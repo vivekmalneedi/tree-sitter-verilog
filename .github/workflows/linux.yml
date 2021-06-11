@@ -2,7 +2,7 @@ name: Linux
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, installtest ]
   pull_request:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        npm install
+        npm build
         npm test
         bash bin/get-uvm.sh
         node bin/test-uvm.js
